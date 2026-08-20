@@ -38,7 +38,9 @@ export default function GetInvolved() {
             <div className="grid gap-7 sm:grid-cols-2">
               {options.map((opt) => {
                 const Icon = (opt.icon && involvedIconMap[opt.icon]) || IconHeart
-                const external = isExternal(opt.ctaUrl)
+                const href =
+                  opt.optionType === 'Donate' ? '/donate' : opt.optionType === 'Volunteer' ? '/volunteer' : opt.ctaUrl
+                const external = isExternal(href)
                 return (
                   <div key={opt.id} className="card-lift flex flex-col rounded-3xl border border-brand/10 bg-white p-8 shadow-card">
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-soft">
@@ -48,11 +50,11 @@ export default function GetInvolved() {
                     <p className="mt-3 flex-1 leading-relaxed text-ink/70">{opt.description}</p>
                     {opt.ctaLabel &&
                       (external ? (
-                        <a href={opt.ctaUrl} target="_blank" rel="noreferrer" className="btn-gold mt-6 self-start">
+                        <a href={href} target="_blank" rel="noreferrer" className="btn-gold mt-6 self-start">
                           {opt.ctaLabel} <IconArrowRight width={16} height={16} />
                         </a>
                       ) : (
-                        <Link to={opt.ctaUrl || '/contact'} className="btn-primary mt-6 self-start">
+                        <Link to={href || '/contact'} className="btn-primary mt-6 self-start">
                           {opt.ctaLabel} <IconArrowRight width={16} height={16} />
                         </Link>
                       ))}

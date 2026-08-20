@@ -8,7 +8,7 @@ Built with **React + TypeScript + Vite + Tailwind CSS**, with all content manage
 
 - Fully responsive, brand-themed UI (colors and fonts derived from the DOM Trust logo and brochure).
 - Content-driven pages powered entirely by Contentful (Content Delivery API). **All** content lives in Contentful — there is no bundled/fallback content.
-- Pages: Home, Who We Are, Our Work (with a detail page per strategic pillar), Impact Stories (with detail pages), Get Involved (with Events), Resources, and Contact.
+- Pages: Home, About (Who We Are), Our Work (with a detail page per strategic pillar), Impact Stories (with detail pages), Get Involved (with Events), Donate, Volunteer, Resources, and Contact.
 
 ## Getting started
 

@@ -42,9 +42,11 @@ export default function Footer() {
         <div>
           <h4 className="footer-title">Explore</h4>
           <ul className="space-y-2.5 text-sm">
-            <li><Link className="footer-link" to="/who-we-are">Who We Are</Link></li>
+            <li><Link className="footer-link" to="/about">About</Link></li>
             <li><Link className="footer-link" to="/our-work">Our Work</Link></li>
             <li><Link className="footer-link" to="/impact">Impact Stories</Link></li>
+            <li><Link className="footer-link" to="/donate">Donate</Link></li>
+            <li><Link className="footer-link" to="/volunteer">Volunteer</Link></li>
             <li><Link className="footer-link" to="/get-involved">Get Involved</Link></li>
             <li><Link className="footer-link" to="/resources">Resources</Link></li>
             <li><Link className="footer-link" to="/contact">Contact Us</Link></li>
@@ -90,6 +92,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/50 sm:flex-row">
           <p>© {year} {settings.siteName}. All rights reserved.</p>
+          <p>We respect your privacy.</p>
           <p>{settings.website}</p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Loader from '../components/ui/Loader'
 import ErrorState from '../components/ui/ErrorState'
 import SectionHeading from '../components/ui/SectionHeading'
 import PillarCard from '../components/ui/PillarCard'
-import { IconArrowRight, IconHands, IconHandshake, IconHeart, IconStar } from '../components/ui/Icons'
+import { IconArrowRight, IconHands, IconHeart, IconStar } from '../components/ui/Icons'
 
 const stats = [
   { value: '10+', label: 'Years of service' },
@@ -38,14 +38,14 @@ export default function Home() {
             <h1 className="text-4xl leading-[1.08] text-white sm:text-5xl lg:text-6xl">{data.heroTitle}</h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">{data.heroSubtitle}</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <a href={settings.donateUrl || '#'} target="_blank" rel="noreferrer" className="btn-gold">
-                <IconHeart width={18} height={18} /> Donate
-              </a>
-              <Link to="/get-involved" className="btn bg-white text-brand-dark hover:bg-white/90">
-                <IconHandshake width={18} height={18} /> Partner
+              <Link to="/our-work" className="btn-gold">
+                Discover Our Work <IconArrowRight width={16} height={16} />
               </Link>
-              <Link to="/get-involved" className="btn border-2 border-white/40 text-white hover:bg-white/10">
-                <IconHands width={18} height={18} /> Volunteer
+              <Link to="/donate" className="btn bg-white text-brand-dark hover:bg-white/90">
+                <IconHeart width={18} height={18} /> Support Our Cause
+              </Link>
+              <Link to="/volunteer" className="btn border-2 border-white/40 text-white hover:bg-white/10">
+                <IconHands width={18} height={18} /> Become a Volunteer
               </Link>
             </div>
           </div>
@@ -69,7 +69,17 @@ export default function Home() {
       {/* Intro blurb */}
       <section className="border-b border-brand/10 bg-white">
         <div className="container-page grid items-center gap-8 py-12 md:grid-cols-[1.5fr_1fr]">
-          <p className="text-xl font-heading font-semibold leading-relaxed text-ink sm:text-2xl">{data.introBlurb}</p>
+          <div>
+            <p className="text-xl font-heading font-semibold leading-relaxed text-ink sm:text-2xl">{data.introBlurb}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/about" className="btn-outline">
+                Our Story
+              </Link>
+              <Link to="/impact" className="btn-primary">
+                See Impact
+              </Link>
+            </div>
+          </div>
           <div className="grid grid-cols-2 gap-6">
             {stats.map((s) => (
               <div key={s.label}>
@@ -85,9 +95,9 @@ export default function Home() {
       <section className="py-20">
         <div className="container-page">
           <SectionHeading
-            eyebrow="What We Do"
-            title="Our Strategic Pillars"
-            subtitle="A multifaceted development approach that helps communities and individuals become self-reliant."
+            eyebrow="Our Core Pillars"
+            title="The foundational areas that guide our work"
+            subtitle="Dedicated action that creates lasting impact — from street family reintegration and education to healthcare, enterprise, climate solutions, and the arts."
             align="center"
           />
           <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -136,7 +146,10 @@ export default function Home() {
       {data.partners.length > 0 && (
         <section className="py-16">
           <div className="container-page text-center">
-            <p className="eyebrow justify-center text-gold-dark">Our Partners & Supporters</p>
+            <p className="eyebrow justify-center text-gold-dark">Our Valued Partners</p>
+            <p className="mx-auto mt-3 max-w-xl text-ink/65">
+              Collaborating for greater impact. We are proud to work with organizations that share our vision.
+            </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               {data.partners.map((p) => (
                 <div
@@ -162,17 +175,18 @@ export default function Home() {
       <section className="container-page pb-4">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-gradient px-8 py-14 text-center text-white shadow-soft sm:px-16">
           <h2 className="mx-auto max-w-2xl text-3xl leading-tight text-white sm:text-4xl">
-            Together, we can create a better future
+            Join Us in Creating Change
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-white/85">
-            Join us in making a positive impact on the lives of the vulnerable across Kenya and Ghana.
+            Every contribution helps us empower more lives and build sustainable communities. Be part of the
+            transformation today.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={settings.donateUrl || '#'} target="_blank" rel="noreferrer" className="btn bg-white text-brand-dark hover:bg-white/90">
+            <Link to="/donate" className="btn bg-white text-brand-dark hover:bg-white/90">
               Donate Now
-            </a>
-            <Link to="/get-involved" className="btn border-2 border-white/50 text-white hover:bg-white/10">
-              Get Involved
+            </Link>
+            <Link to="/volunteer" className="btn border-2 border-white/50 text-white hover:bg-white/10">
+              Become a Volunteer
             </Link>
           </div>
         </div>

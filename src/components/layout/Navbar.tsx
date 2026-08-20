@@ -5,7 +5,7 @@ import { IconArrowRight } from '../ui/Icons'
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'Who We Are', to: '/who-we-are' },
+  { label: 'About', to: '/about' },
   { label: 'Our Work', to: '/our-work' },
   { label: 'Impact Stories', to: '/impact' },
   { label: 'Get Involved', to: '/get-involved' },
@@ -45,9 +45,11 @@ export default function Navbar() {
               <NavLink
                 to={item.to}
                 end={item.to === '/'}
-                className={({ isActive }) =>
-                  `rounded-full px-3.5 py-2 text-sm font-heading font-semibold transition-colors ${
-                    isActive ? 'text-brand-dark' : 'text-ink/70 hover:text-brand-dark'
+                className={({ isActive }) => {
+                  const onAbout = item.to === '/about' && location.pathname === '/who-we-are'
+                  const onWork = item.to === '/our-work' && location.pathname.startsWith('/work')
+                  return `rounded-full px-3.5 py-2 text-sm font-heading font-semibold transition-colors ${
+                    isActive || onAbout || onWork ? 'text-brand-dark' : 'text-ink/70 hover:text-brand-dark'
                   }`
                 }
               >
@@ -73,9 +75,9 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href={settings.donateUrl || '#'} target="_blank" rel="noreferrer" className="btn-gold">
+          <Link to="/donate" className="btn-gold">
             Donate <IconArrowRight width={16} height={16} />
-          </a>
+          </Link>
         </div>
 
         <button
@@ -99,18 +101,20 @@ export default function Navbar() {
                 key={item.to}
                 to={item.to}
                 end={item.to === '/'}
-                className={({ isActive }) =>
-                  `rounded-xl px-3 py-3 text-base font-heading font-semibold ${
-                    isActive ? 'bg-brand/10 text-brand-dark' : 'text-ink/80'
+                className={({ isActive }) => {
+                  const onAbout = item.to === '/about' && location.pathname === '/who-we-are'
+                  const onWork = item.to === '/our-work' && location.pathname.startsWith('/work')
+                  return `rounded-xl px-3 py-3 text-base font-heading font-semibold ${
+                    isActive || onAbout || onWork ? 'bg-brand/10 text-brand-dark' : 'text-ink/80'
                   }`
                 }
               >
                 {item.label}
               </NavLink>
             ))}
-            <a href={settings.donateUrl || '#'} target="_blank" rel="noreferrer" className="btn-gold mt-3">
+            <Link to="/donate" className="btn-gold mt-3">
               Donate <IconArrowRight width={16} height={16} />
-            </a>
+            </Link>
           </nav>
         </div>
       )}
