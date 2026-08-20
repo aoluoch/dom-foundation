@@ -16,16 +16,19 @@ update the website.
 3. [The 6 things you must know before editing](#3-the-6-things-you-must-know-before-editing)
 4. [Global content (logo, contact details, social links, donate button)](#4-global-content-site-settings)
 5. [Home page](#5-home-page)
-6. [Who We Are page](#6-who-we-are-page)
+6. [About page](#6-about-page)
 7. [Our Work page & pillar detail pages](#7-our-work-page--pillar-detail-pages)
 8. [Impact Stories page & story detail pages](#8-impact-stories-page--story-detail-pages)
-9. [Get Involved page (options + events)](#9-get-involved-page)
-10. [Resources page](#10-resources-page)
-11. [Contact page](#11-contact-page)
-12. [Header (navigation) & Footer](#12-header--footer)
-13. [Common how-to recipes](#13-common-how-to-recipes)
-14. [Formatting rules (paragraphs, images, links)](#14-formatting-rules)
-15. [Troubleshooting](#15-troubleshooting)
+9. [Donate page](#9-donate-page)
+10. [Volunteer page](#10-volunteer-page)
+11. [Get Involved page (options + events)](#11-get-involved-page)
+12. [Resources page](#12-resources-page)
+13. [Contact page](#13-contact-page)
+14. [Header (navigation) & Footer](#14-header--footer)
+15. [Page copy entries (the `page-…` slugs)](#15-page-copy-entries-the-page--slugs)
+16. [Common how-to recipes](#16-common-how-to-recipes)
+17. [Formatting rules (paragraphs, images, links)](#17-formatting-rules)
+18. [Troubleshooting](#18-troubleshooting)
 
 ---
 
@@ -42,15 +45,30 @@ update the website.
   | --------------------- | ------------------------------------------------------------- |
   | **Site Settings**     | Logo, tagline, email, phone, address, social links, donate URL |
   | **Home Page**         | The homepage hero, intro line, and what it features            |
-  | **About Page**        | The "Who We Are" page text (about / vision / mission / history) |
-  | **Core Value**        | The value cards on "Who We Are"                                |
-  | **Team Member**       | The team cards on "Who We Are"                                 |
+  | **About Page**        | About / vision / mission / history, plus linked values & team  |
+  | **Core Value**        | Value cards on About, and the holistic-approach cards          |
+  | **Team Member**       | The team cards on About                                        |
   | **Strategic Pillar**  | The six pillars (Our Work page + each pillar detail page)      |
-  | **Impact Story**      | The stories on the Impact page + each story detail page        |
-  | **Get Involved Option** | The "ways to help" cards on Get Involved                     |
+  | **Impact Story**      | Real stories on Impact — **and** page headlines (see [section 15](#15-page-copy-entries-the-page--slugs)) |
+  | **Get Involved Option** | Ways to help cards, plus Donate / Volunteer button labels    |
   | **Event**             | The events listed on Get Involved                              |
   | **Resource**          | The downloads on the Resources page                            |
   | **Partner**           | The partner logos/names on the homepage                        |
+
+Public routes the site serves:
+
+| URL | Page |
+| --- | ---- |
+| `/` | Home |
+| `/about` (also `/who-we-are`) | About |
+| `/our-work` (also `/work`) | Our Work |
+| `/our-work/:slug` (also `/work/:slug`) | Pillar detail |
+| `/impact` and `/impact/:slug` | Impact listing and story |
+| `/donate` (also `/support` → donate) | Donate |
+| `/volunteer` | Volunteer |
+| `/get-involved` | Get Involved |
+| `/resources` | Resources |
+| `/contact` | Contact |
 
 > **Important:** When you change and **publish** an entry, the change appears on
 > the live site automatically (usually within a minute — refresh the page).
@@ -96,8 +114,7 @@ update the website.
 ## 4. Global content (Site Settings)
 
 **Content type:** `Site Settings` — there is **one** entry. It powers the logo,
-contact info, social links, and the **Donate** button used across the whole
-site (header, footer, contact page, homepage buttons).
+contact info, social links, and the payment link used by Donate buttons.
 
 **Steps**
 
@@ -106,17 +123,23 @@ site (header, footer, contact page, homepage buttons).
 
 | Field           | Where it appears                                          |
 | --------------- | --------------------------------------------------------- |
-| **Site Name**   | Footer copyright, page titles                             |
-| **Tagline**     | Footer, under the logo                                    |
+| **Site Name**   | Footer copyright, page titles, homepage badge             |
+| **Tagline**     | Footer, under the logo; homepage image badge              |
 | **Logo**        | Header, footer, homepage badge (upload a square image)    |
-| **Email**       | Contact page, footer, and the contact form's destination  |
+| **Email**       | Contact page, footer, and the contact/volunteer forms' destination  |
 | **Phone**       | Contact page, footer                                      |
 | **Website**     | Contact page, footer bottom bar                           |
 | **Address**     | Contact page, footer                                      |
 | **Facebook URL** | Facebook icon in footer & contact page (leave blank to hide) |
 | **Instagram URL** | Instagram icon (leave blank to hide)                     |
 | **TikTok URL**  | TikTok icon (leave blank to hide)                         |
-| **Donate URL**  | The **Donate** buttons everywhere (e.g. a payment/GoFundMe link) |
+| **Donate URL**  | Where Donate buttons send people to pay (e.g. GoFundMe)   |
+
+The header **Donate** button *label* comes from the **Get Involved Option** whose
+type is Donate (see [section 9](#9-donate-page)), not from Site Settings.
+
+The footer line “We respect your privacy.” comes from the Impact Story whose
+slug is `page-privacy` (Title field). See [section 15](#15-page-copy-entries-the-page--slugs).
 
 > **Tip:** Social icons only show if the matching URL is filled in. Leave a URL
 > blank to hide that icon.
@@ -126,7 +149,7 @@ site (header, footer, contact page, homepage buttons).
 ## 5. Home page
 
 **Content type:** `Home Page` — there is **one** entry. It controls the homepage
-in five sections, top to bottom.
+hero, intro, featured pillars, featured story, and partners.
 
 **Steps:** **Content** → filter **Home Page** → open the single entry → edit →
 **Publish**.
@@ -139,8 +162,13 @@ in five sections, top to bottom.
 | **Hero Subtitle** | The sentence under the headline                          |
 | **Hero Image**   | The background/side image (upload or pick an asset)       |
 
-> The **Donate / Partner / Volunteer** buttons in the hero are fixed. The Donate
-> link comes from **Site Settings → Donate URL** (see section 4).
+Hero button labels come from other entries (all in [section 15](#15-page-copy-entries-the-page--slugs) unless noted):
+
+| Button | Edit this |
+| ------ | --------- |
+| Discover Our Work | Impact Story `page-our-work` → **Author / Source** |
+| Donate | Get Involved Option (Donate) → **CTA Label** |
+| Volunteer | Get Involved Option (Volunteer) → **CTA Label** |
 
 ### Section B — Intro blurb
 
@@ -148,14 +176,34 @@ in five sections, top to bottom.
 | --------------- | ----------------------------------------------- |
 | **Intro Blurb** | The large highlighted sentence below the hero.  |
 
-> The four statistics next to it (e.g. "10+ Years of service") are currently
-> fixed in the design and are not edited in Contentful.
+| Button | Edit this |
+| ------ | --------- |
+| Our Story | Impact Story `page-home-story` → **Title** |
+| See Impact | Impact Story `page-home-impact` → **Title** |
 
-### Section C — Strategic Pillars ("What We Do")
+The four statistics next to the intro are the Impact Story `page-home-stats`.
+Put one stat per line in **Body**, as `value|label`:
+
+```
+10+|Years of service
+6|Strategic pillars
+2|Countries: Kenya & Ghana
+1000s|Lives touched
+```
+
+### Section C — Strategic Pillars
 
 | Field             | What it does                                                 |
 | ----------------- | ------------------------------------------------------------ |
 | **Pillars**       | A list of references to **Strategic Pillar** entries to feature as cards. |
+
+Heading copy: Impact Story `page-home-pillars`
+
+| Story field | On the homepage |
+| ----------- | --------------- |
+| **Location** | Small eyebrow (“Our Core Pillars”) |
+| **Title** | Section heading |
+| **Summary** | Paragraph under the heading |
 
 To change which pillars appear: click **Add existing content** and choose the
 Strategic Pillar entries. To edit a pillar's title/summary/icon, open that
@@ -168,7 +216,11 @@ Strategic Pillar entry (see [section 7](#7-our-work-page--pillar-detail-pages)).
 | **Featured Story** | A reference to one **Impact Story** entry shown in the green band. |
 
 The website shows that story's **title, quote, author, and image**. Edit those
-on the Impact Story entry itself.
+on the Impact Story entry itself. The “Read the story” button is Impact Story
+`page-home-featured` → **Title**.
+
+Do **not** feature a story whose slug starts with `page-` — those are page
+headlines, not public stories.
 
 ### Section E — Partners
 
@@ -176,14 +228,20 @@ on the Impact Story entry itself.
 | ------------- | -------------------------------------------------------- |
 | **Partners**  | A list of references to **Partner** entries (logo + name). |
 
-> The bottom "Together, we can create a better future" call-to-action band is
-> fixed text; its buttons use the Donate URL and link to Get Involved.
+Heading copy: Impact Story `page-home-partners` (**Title** + **Summary**).
+
+### Section F — Bottom call-to-action band
+
+Impact Story `page-home-cta`: **Title** and **Summary**. The two buttons reuse
+the Donate and Volunteer **CTA Labels**.
 
 ---
 
-## 6. Who We Are page
+## 6. About page
 
-This page is built from **three** content types.
+The About page is at `/about` (`/who-we-are` is the same page). It is built from
+the **About Page** entry, **Core Values**, **Team Members**, and several
+`page-about-…` Impact Stories.
 
 ### 6a. Page text — `About Page` (one entry)
 
@@ -192,28 +250,50 @@ This page is built from **three** content types.
 | Field         | Where it appears on the page                               |
 | ------------- | ---------------------------------------------------------- |
 | **Hero Image** | Banner image at the top                                    |
-| **About**     | The main "About DOM Foundation" body text                  |
-| **History**   | The "Our History" card (leave blank to hide the card)      |
-| **Vision**    | The green "Our Vision" box                                 |
-| **Mission**   | The "Our Mission" box                                      |
+| **About**     | The main body text                                         |
+| **History**   | The history card (leave blank to hide the card)            |
+| **Vision**    | The green vision box                                       |
+| **Mission**   | The mission box                                            |
+| **Values**    | Linked Core Value entries (see order bands below)          |
+| **Team**      | Linked Team Member entries                                 |
 
 > **About** and **History** support multiple paragraphs — separate paragraphs
-> with a **blank line** (press Enter twice). See [section 14](#14-formatting-rules).
+> with a **blank line** (press Enter twice). See [section 17](#17-formatting-rules).
 
-### 6b. Value cards — `Core Value` (one entry per value)
+Hero headline and About section labels:
 
-Each card in "Our Core Values" is a separate **Core Value** entry.
+| Story slug | Fields → what they control |
+| ---------- | -------------------------- |
+| `page-about` | **Location** = eyebrow, **Title** = hero headline, **Summary** = hero subtitle, **Author / Source** = “About …” section heading |
+| `page-about-labels` | **Body**, three paragraphs: History heading, Vision heading, Mission heading |
+| `page-about-holistic` | **Location** / **Title** / **Summary** = holistic section |
+| `page-about-values` | **Location** / **Title** = core-values section |
+| `page-about-team` | **Location** / **Title** / **Summary** = team section |
+| `page-about-join` | **Title** / **Summary** = green join band at the bottom |
+
+### 6b. Value cards and holistic cards — `Core Value`
+
+**Order** decides where a value appears:
+
+| Order | Used as |
+| ----- | ------- |
+| **1–9** | “Our Core Values” cards |
+| **10–19** | Holistic-approach cards (Safety, Finance, Skills, Policy, …) |
+| Other numbers | Hidden from those two grids |
+
+Each card:
 
 | Field         | What it does                                                        |
 | ------------- | ------------------------------------------------------------------- |
-| **Title**     | The value name                                                      |
+| **Title**     | The card name                                                       |
 | **Description** | Short text under the title                                        |
-| **Icon**      | Choose one keyword to pick the icon: `collaborate`, `empathy`, `integrity`, `diversity`, or `impact`. Anything else shows a star. |
-| **Order**     | Position (lower = earlier)                                          |
+| **Icon**      | Values: `collaborate`, `empathy`, `integrity`, `diversity`, `impact`. Holistic cards may also use pillar icons: `education`, `business`, `medical`, and so on. Anything else shows a star. |
+| **Order**     | Position (and which band — see the table above)                     |
 
-To **add** a value: **Add entry → Core Value**, fill fields, set Order, **Publish**.
+To **add** a value: **Add entry → Core Value**, fill fields, set Order, **Publish**,
+then add it to **About Page → Values** and **Publish** the About Page too.
 
-### 6c. Team cards — `Team Member` (one entry per person)
+### 6c. Team cards — `Team Member`
 
 | Field       | What it does                                        |
 | ----------- | --------------------------------------------------- |
@@ -223,7 +303,11 @@ To **add** a value: **Add entry → Core Value**, fill fields, set Order, **Publ
 | **Photo**   | Portrait image (optional — shows an icon if blank)  |
 | **Order**   | Position among team cards                            |
 
-To **add** a team member: **Add entry → Team Member**, fill fields, **Publish**.
+To **add** a team member: **Add entry → Team Member**, fill fields, **Publish**,
+then add it to **About Page → Team**.
+
+The Donate / Volunteer buttons on the About join band use the same **CTA Labels**
+as the homepage (Get Involved Options).
 
 ---
 
@@ -232,6 +316,20 @@ To **add** a team member: **Add entry → Team Member**, fill fields, **Publish*
 **Content type:** `Strategic Pillar` — one entry per pillar (there are six).
 These power the **Our Work** grid, each pillar's own detail page, the homepage
 pillar cards, and the footer "Our Work" links.
+
+`/work` and `/work/:slug` show the same pages as `/our-work`.
+
+The Our Work listing hero is Impact Story `page-our-work`:
+
+| Story field | On Our Work |
+| ----------- | ----------- |
+| **Location** | Eyebrow |
+| **Title** | Page headline |
+| **Summary** | Subtitle |
+| **Author / Source** | Also used as the homepage “Discover Our Work” button |
+
+Pillar-detail labels (Overview, “Support this work”, etc.) are Impact Story
+`page-pillar-detail`. See [section 15](#15-page-copy-entries-the-page--slugs).
 
 **Steps:** **Content** → filter **Strategic Pillar** → open the pillar → edit →
 **Publish**.
@@ -293,6 +391,9 @@ If the field is edited as JSON, the shape looks like this:
 **Content type:** `Impact Story` — one entry per story. Powers the **Impact**
 grid and each story's detail page. May also be featured on the homepage.
 
+The listing hero is Impact Story `page-impact` (**Location**, **Title**, **Summary**).
+Story-detail buttons are Impact Story `page-story-detail`.
+
 **Steps:** **Content** → filter **Impact Story** → open → edit → **Publish**.
 
 | Field         | Where it appears                                                       |
@@ -308,10 +409,14 @@ grid and each story's detail page. May also be featured on the homepage.
 | **Featured**  | A yes/no toggle — used to mark stories as featured                     |
 | **Pillar**    | A reference to the related **Strategic Pillar** (shows a tag linking to it) |
 
+> **Do not give a public story a slug that starts with `page-`.** Those slugs are
+> reserved for page headlines. Stories with `page-` slugs are **hidden** from the
+> Impact grid on purpose.
+
 ### To add a new story
 
 1. **Add entry → Impact Story**, fill fields (at minimum Title + Slug), **Publish**.
-2. It automatically appears on the Impact page.
+2. It automatically appears on the Impact page (unless the slug starts with `page-`).
 
 ### To feature a story on the homepage
 
@@ -320,26 +425,77 @@ Open **Home Page → Featured Story**, point it at the Impact Story you want, th
 
 ---
 
-## 9. Get Involved page
+## 9. Donate page
 
-This page uses **two** content types.
+URL: `/donate` (`/support` redirects here).
 
-### 9a. The "ways to help" cards — `Get Involved Option`
+Built from:
+
+1. **Get Involved Option** with Option Type **Donate** — card text, button label,
+   and the payment URL (or Site Settings **Donate URL** if the option URL is empty).
+2. Impact Story `page-donate` — page headline and side panel.
+
+| Story field | On Donate |
+| ----------- | --------- |
+| **Location** | Eyebrow (“Support Our Cause”) |
+| **Title** | Hero headline |
+| **Summary** | Hero subtitle |
+| **Body** | Main paragraphs (blank line between paragraphs) |
+| **Author / Source** | Heading above the body |
+| **Quote** | First paragraph = panel title, second = panel body, further paragraphs = panel bullets |
+
+The gold Donate button uses the Donate option **CTA Label**. The secondary
+Volunteer button uses the Volunteer option **CTA Label**.
+
+---
+
+## 10. Volunteer page
+
+URL: `/volunteer`.
+
+Built from:
+
+1. **Get Involved Option** with Option Type **Volunteer** — description and
+   submit-button label. Set **CTA URL** to `/volunteer`.
+2. Impact Story `page-volunteer`.
+
+| Story field | On Volunteer |
+| ----------- | ------------ |
+| **Location** | Eyebrow |
+| **Title** | Hero headline |
+| **Summary** | Hero subtitle |
+| **Body** | Main paragraphs |
+| **Author / Source** | Form heading |
+| **Quote** | First paragraph = success heading, second = success message, third = “back to form” button |
+
+The form emails **Site Settings → Email**. Keep that address correct.
+
+---
+
+## 11. Get Involved page
+
+This page uses **two** content types plus two page-copy stories.
+
+Listing hero: Impact Story `page-get-involved` (**Location**, **Title**, **Summary**).
+Events heading: Impact Story `page-get-involved-events` (**Location**, **Title**).
+
+### 11a. The "ways to help" cards — `Get Involved Option`
 
 | Field           | What it does                                                     |
 | --------------- | ---------------------------------------------------------------- |
 | **Title**       | Card heading                                                     |
 | **Description** | Card text                                                        |
 | **Icon**        | Choose one keyword: `donate`, `volunteer`, `partner`, or `events`. Anything else shows a heart. |
-| **CTA Label**   | The button text (leave blank to hide the button)                 |
-| **CTA URL**     | Where the button goes. A full `https://…` link opens in a new tab; a path like `/contact` navigates within the site. |
+| **CTA Label**   | The button text (leave blank to hide the button). Donate/Volunteer labels are reused across the site. |
+| **CTA URL**     | Where the button goes. Donate and Volunteer types always open `/donate` and `/volunteer`. A full `https://…` link opens in a new tab; a path like `/contact` navigates within the site. |
+| **Option Type** | `Donate`, `Volunteer`, `Partner`, or `Events`                    |
 | **Order**       | Card position                                                    |
 
 To **add** an option: **Add entry → Get Involved Option**, fill fields, **Publish**.
 
-### 9b. The events list — `Event`
+### 11b. The events list — `Event`
 
-Shown in the "Events & Community Drives" section, sorted by date.
+Shown in the events section, sorted by date.
 
 | Field         | What it does                                            |
 | ------------- | ------------------------------------------------------ |
@@ -354,16 +510,26 @@ past event from the site, **unpublish** or delete its entry.
 
 ---
 
-## 10. Resources page
+## 12. Resources page
 
 **Content type:** `Resource` — one entry per download.
+
+Listing hero and link labels: Impact Story `page-resources`.
+
+| Story field | On Resources |
+| ----------- | ------------ |
+| **Location** | Eyebrow |
+| **Title** | Headline |
+| **Summary** | Subtitle |
+| **Author / Source** | “Download” link text |
+| **Quote** | “Coming soon” text when a file is missing |
 
 | Field           | What it does                                                       |
 | --------------- | ----------------------------------------------------------------- |
 | **Title**       | The resource name                                                 |
 | **Category**    | Used for the filter buttons at the top (e.g. "Reports", "Briefs"). Resources with the same category are grouped under that filter. |
 | **Description** | Short summary on the card                                         |
-| **File**        | The downloadable file (PDF, etc.). Upload it here. If left empty, the card shows "Coming soon" instead of a download link. |
+| **File**        | The downloadable file (PDF, etc.). Upload it here. If left empty, the card shows the coming-soon label instead of a download link. |
 | **Order**       | Position in the list                                              |
 
 To **add** a resource: **Add entry → Resource**, upload the **File**, set a
@@ -372,47 +538,119 @@ buttons automatically.
 
 ---
 
-## 11. Contact page
+## 13. Contact page
 
-The Contact page pulls everything from **Site Settings** (see
+Hero, panel heading, and form success copy: Impact Story `page-contact`.
+
+| Story field | On Contact |
+| ----------- | ---------- |
+| **Location** | Eyebrow |
+| **Title** | Headline |
+| **Summary** | Subtitle |
+| **Author / Source** | Send-button label |
+| **Quote** | First paragraph = “Contact Information” heading; second = success heading; third = back-to-form button |
+| **Body** | Success message (the Site Settings email is appended automatically) |
+
+Contact details still come from **Site Settings** (see
 [section 4](#4-global-content-site-settings)):
 
-- **Email, Phone, Website, Address** → the "Contact Information" panel.
-- **Facebook / Instagram / TikTok URLs** → the "Follow us" icons.
+- **Email, Phone, Website, Address** → the information panel.
+- **Facebook / Instagram / TikTok URLs** → social icons.
 
-So to update contact details, edit the **Site Settings** entry and **Publish**.
-
-> The message form itself is fixed. When a visitor submits it, it opens their
-> email app addressed to the **Email** in Site Settings — so keep that email
-> correct.
+When a visitor submits the form, it opens their email app addressed to the
+**Email** in Site Settings — so keep that email correct.
 
 ---
 
-## 12. Header & Footer
+## 14. Header & Footer
 
-- **Header (navigation):** The menu links (Who We Are, Our Work, Impact, etc.)
-  are fixed in the site design and are **not** edited in Contentful. The **logo**
-  and **Donate** button come from **Site Settings**.
-- **Footer:** Built automatically from **Site Settings** (logo, tagline, socials,
-  email, phone, address) and the list of **Strategic Pillars** (the "Our Work"
-  column). Update those entries to change the footer.
+- **Header (navigation):** Menu link *labels* (Home, About, Our Work, …) are
+  part of the site chrome. The **logo** comes from **Site Settings**. The
+  **Donate** button label comes from the Donate Get Involved Option.
+- **Footer:** Logo, tagline, socials, email, phone, and address come from
+  **Site Settings**. The “Our Work” column lists **Strategic Pillars**. The
+  privacy line is Impact Story `page-privacy` → **Title**.
 
 ---
 
-## 13. Common how-to recipes
+## 15. Page copy entries (the `page-…` slugs)
 
-**Change the Donate button link everywhere**
-→ Site Settings → **Donate URL** → Publish.
+Headlines that are not part of Home Page / About Page fields live as **Impact
+Stories** whose **Slug** starts with `page-`. They never appear on the Impact
+grid.
+
+Filter **Content → Impact Story** and search `page-` to find them. Always keep
+**Featured** turned **off**.
+
+How the website reads those fields:
+
+| Impact Story field | Used as page copy |
+| ------------------ | ----------------- |
+| **Slug** | Must be exactly `page-…` as listed below |
+| **Location** | Small eyebrow above the title |
+| **Title** | Main heading |
+| **Summary** | Subtitle / intro |
+| **Body** | Long text (or stats, or About section labels) |
+| **Author / Source** | Secondary heading, button, or form title |
+| **Quote** | Split on blank lines: 1st = panel title, 2nd = panel body, rest = extra lines |
+| **Image** | Optional hero image |
+
+Complete slug list:
+
+| Slug | Page / block |
+| ---- | ------------ |
+| `page-about` | About hero |
+| `page-about-labels` | History / Vision / Mission headings |
+| `page-about-holistic` | Holistic section |
+| `page-about-values` | Core values section |
+| `page-about-team` | Team section |
+| `page-about-join` | About join band |
+| `page-donate` | Donate |
+| `page-volunteer` | Volunteer |
+| `page-our-work` | Our Work listing (+ homepage “Discover Our Work”) |
+| `page-impact` | Impact listing |
+| `page-get-involved` | Get Involved listing |
+| `page-get-involved-events` | Events heading |
+| `page-resources` | Resources listing |
+| `page-contact` | Contact |
+| `page-home-pillars` | Homepage pillars heading |
+| `page-home-partners` | Homepage partners heading |
+| `page-home-cta` | Homepage bottom band |
+| `page-home-story` | “Our Story” button |
+| `page-home-impact` | “See Impact” button |
+| `page-home-featured` | “Read the story” button |
+| `page-home-stats` | Homepage statistics |
+| `page-privacy` | Footer privacy line |
+| `page-pillar-detail` | Pillar detail labels |
+| `page-story-detail` | Story detail buttons |
+| `page-not-found` | 404 page |
+
+If you create a new `page-…` story, **Publish** it or that block of the site
+will be missing.
+
+---
+
+## 16. Common how-to recipes
+
+**Change the Donate payment link everywhere**
+→ Site Settings → **Donate URL** (and/or Donate option **CTA URL**) → Publish.
+
+**Change the Donate button wording**
+→ Get Involved Option (Donate) → **CTA Label** → Publish.
 
 **Update the homepage headline**
 → Home Page → **Hero Title / Hero Subtitle** → Publish.
 
+**Update About, Donate, or Volunteer headlines**
+→ Impact Story `page-about`, `page-donate`, or `page-volunteer` → Publish.
+
 **Add a new team member**
-→ Add entry → Team Member → fill Name/Role/Bio/Photo/Order → Publish.
+→ Add entry → Team Member → fill Name/Role/Bio/Photo/Order → Publish → add to
+About Page → Team → Publish About Page.
 
 **Add a new impact story and feature it**
-→ Add entry → Impact Story → Publish → open Home Page → set **Featured Story** →
-Publish Home Page.
+→ Add entry → Impact Story (slug must **not** start with `page-`) → Publish →
+open Home Page → set **Featured Story** → Publish Home Page.
 
 **Reorder pillars / values / resources / team**
 → Change the **Order** number on each entry (lower shows first) → Publish each.
@@ -431,12 +669,12 @@ featured on the homepage, remove that reference first.)
 
 ---
 
-## 14. Formatting rules
+## 17. Formatting rules
 
 - **Paragraphs:** For long text fields (**About**, **History**, pillar
-  **Overview**, story **Body**), start a new paragraph by leaving a **blank
-  line** between blocks of text (press **Enter twice**). A single line break is
-  ignored.
+  **Overview**, story **Body** and **Quote**), start a new paragraph by leaving a
+  **blank line** between blocks of text (press **Enter twice**). A single line
+  break is ignored.
 - **Images:**
   - Use good-quality images (roughly 1200px wide or larger for banners).
   - Prefer landscape images for hero/banner fields.
@@ -447,10 +685,11 @@ featured on the homepage, remove that reference first.)
   starting with `/` (like `/contact`) links to another page on this site.
 - **Slugs:** Use lowercase letters and hyphens only (e.g. `clean-water`). Avoid
   spaces, capitals, and punctuation. Changing a slug changes that page's URL.
+  Never start a public story slug with `page-`.
 
 ---
 
-## 15. Troubleshooting
+## 18. Troubleshooting
 
 **"I edited something but the site hasn't changed."**
 1. Did you click **Publish**? A draft is not live.
@@ -462,6 +701,13 @@ featured on the homepage, remove that reference first.)
 - If it's meant to be featured (e.g. a homepage pillar or featured story), make
   sure it's added as a **reference** on the relevant page entry, and that page is
   **Published** too.
+- If you added a Core Value, add it to **About Page → Values** as well.
+- If a whole page’s headline is missing, check the matching `page-…` Impact
+  Story is published.
+
+**"A page-… story showed up on the Impact grid."**
+- Its slug must start with `page-` exactly (for example `page-donate`). Rename
+  the slug and Publish.
 
 **"The whole site shows an error screen."**
 - This usually means the site can't reach Contentful. Contact the site
@@ -475,6 +721,7 @@ featured on the homepage, remove that reference first.)
 **"I deleted an entry and now a page is broken."**
 - If the deleted entry was referenced elsewhere (e.g. a featured story), open the
   page entry that referenced it and remove/replace the reference, then Publish.
+- If you deleted a `page-…` story, recreate it with the same slug (section 15).
 
 ---
 
@@ -482,14 +729,16 @@ featured on the homepage, remove that reference first.)
 
 | Website page            | Edit these content types                                  |
 | ----------------------- | --------------------------------------------------------- |
-| Everywhere (logo, contact, socials, donate) | Site Settings                        |
-| Home                    | Home Page (+ referenced Strategic Pillars, Impact Story, Partners) |
-| Who We Are              | About Page, Core Value, Team Member                        |
-| Our Work + pillar pages | Strategic Pillar                                           |
-| Impact + story pages    | Impact Story                                               |
-| Get Involved            | Get Involved Option, Event                                 |
-| Resources               | Resource                                                   |
-| Contact                 | Site Settings                                              |
-| Footer                  | Site Settings + Strategic Pillar                           |
+| Everywhere (logo, contact, socials, donate URL) | Site Settings + Donate option CTA |
+| Home                    | Home Page + `page-home-…` / `page-our-work` / `page-donate` stories, Strategic Pillars, Impact Story, Partners, Get Involved Options |
+| About (`/about`)        | About Page, Core Value, Team Member, `page-about-…` stories |
+| Donate (`/donate`)      | Get Involved Option (Donate) + `page-donate` |
+| Volunteer (`/volunteer`)| Get Involved Option (Volunteer) + `page-volunteer` |
+| Our Work + pillar pages | Strategic Pillar + `page-our-work` + `page-pillar-detail` |
+| Impact + story pages    | Impact Story + `page-impact` + `page-story-detail` |
+| Get Involved            | Get Involved Option, Event, `page-get-involved`, `page-get-involved-events` |
+| Resources               | Resource + `page-resources` |
+| Contact                 | Site Settings + `page-contact` |
+| Footer                  | Site Settings + Strategic Pillar + `page-privacy` |
 
 **Remember: after every change, click _Publish_.**

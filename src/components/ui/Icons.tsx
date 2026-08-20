@@ -195,6 +195,8 @@ export const valueIconMap: Record<string, (p: IconProps) => React.ReactElement> 
   integrity: IconScale,
   diversity: IconGlobe,
   impact: IconStar,
+  education: IconEducation,
+  business: IconBusiness,
 }
 
 export const involvedIconMap: Record<string, (p: IconProps) => React.ReactElement> = {

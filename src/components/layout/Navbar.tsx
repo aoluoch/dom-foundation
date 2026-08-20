@@ -85,9 +85,11 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link to="/donate" className="btn-gold">
-            Donate <IconArrowRight width={16} height={16} />
-          </Link>
+          {settings.donateCtaLabel && (
+            <Link to="/donate" className="btn-gold">
+              {settings.donateCtaLabel} <IconArrowRight width={16} height={16} />
+            </Link>
+          )}
         </div>
 
         <button
@@ -120,9 +122,11 @@ export default function Navbar() {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/donate" className="btn-gold mt-3">
-              Donate <IconArrowRight width={16} height={16} />
-            </Link>
+            {settings.donateCtaLabel && (
+              <Link to="/donate" className="btn-gold mt-3">
+                {settings.donateCtaLabel} <IconArrowRight width={16} height={16} />
+              </Link>
+            )}
           </nav>
         </div>
       )}

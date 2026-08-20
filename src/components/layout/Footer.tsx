@@ -92,7 +92,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-2 py-6 text-xs text-white/50 sm:flex-row">
           <p>© {year} {settings.siteName}. All rights reserved.</p>
-          <p>We respect your privacy.</p>
+          {settings.privacyNote && <p>{settings.privacyNote}</p>}
           <p>{settings.website}</p>
         </div>
       </div>

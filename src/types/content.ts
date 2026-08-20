@@ -105,6 +105,8 @@ export interface SiteSettings {
   instagramUrl?: string
   tiktokUrl?: string
   donateUrl?: string
+  privacyNote?: string
+  donateCtaLabel?: string
 }
 
 export interface HomeContent {
@@ -115,6 +117,20 @@ export interface HomeContent {
   pillars: StrategicPillar[]
   featuredStory?: ImpactStory
   partners: Partner[]
+  workCtaLabel?: string
+  donateCtaLabel?: string
+  volunteerCtaLabel?: string
+  storyCtaLabel?: string
+  impactCtaLabel?: string
+  pillarsEyebrow?: string
+  pillarsTitle?: string
+  pillarsSubtitle?: string
+  partnersHeading?: string
+  partnersBlurb?: string
+  ctaTitle?: string
+  ctaBody?: string
+  featuredCtaLabel?: string
+  stats?: Array<{ value: string; label: string }>
 }
 
 export interface AboutContent {
@@ -125,4 +141,41 @@ export interface AboutContent {
   heroImage?: ImageAsset
   values: CoreValue[]
   team: TeamMember[]
+  headline?: string
+  subtitle?: string
+  sectionEyebrow?: string
+  sectionTitle?: string
+  holisticEyebrow?: string
+  holisticTitle?: string
+  holisticIntro?: string
+  valuesEyebrow?: string
+  valuesTitle?: string
+  teamEyebrow?: string
+  teamTitle?: string
+  teamSubtitle?: string
+  joinTitle?: string
+  joinBody?: string
+  historyTitle?: string
+  visionTitle?: string
+  missionTitle?: string
+  holisticItems?: Array<{ title: string; description?: string; icon?: string }>
+}
+
+/** Marketing copy for a whole page (Donate, Volunteer, listing heroes, etc.). */
+export interface PageCopy {
+  slug: string
+  eyebrow?: string
+  title: string
+  subtitle?: string
+  heading?: string
+  body?: string
+  ctaLabel?: string
+  ctaUrl?: string
+  secondaryCtaLabel?: string
+  secondaryCtaUrl?: string
+  panelTitle?: string
+  panelBody?: string
+  panelItems?: string[]
+  formTitle?: string
+  heroImage?: ImageAsset
 }
