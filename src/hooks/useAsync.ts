@@ -1,3 +1,4 @@
+/* oxlint-disable react/set-state-in-effect, react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react'
 
 interface AsyncState<T> {
@@ -22,8 +23,7 @@ export function useAsync<T>(fn: () => Promise<T>, deps: unknown[] = []): AsyncSt
     return () => {
       active = false
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps)
+  }, deps) // oxlint-disable-line react-hooks/exhaustive-deps
 
   return state
 }

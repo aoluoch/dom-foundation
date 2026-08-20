@@ -13,20 +13,30 @@ const navItems = [
   { label: 'Contact', to: '/contact' },
 ]
 
+function isNavActive(to: string, pathname: string, isActive: boolean) {
+  if (isActive) return true
+  if (to === '/about' && pathname === '/who-we-are') return true
+  if (to === '/our-work' && (pathname === '/work' || pathname.startsWith('/work/'))) return true
+  return false
+}
+
 export default function Navbar() {
   const { settings, pillars } = useSite()
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const [menuPath, setMenuPath] = useState(location.pathname)
+  const [scrolled, setScrolled] = useState(() => typeof window !== 'undefined' && window.scrollY > 12)
+
+  if (menuPath !== location.pathname) {
+    setMenuPath(location.pathname)
+    setOpen(false)
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  useEffect(() => setOpen(false), [location.pathname])
 
   return (
     <header
@@ -45,11 +55,11 @@ export default function Navbar() {
               <NavLink
                 to={item.to}
                 end={item.to === '/'}
-                className={({ isActive }) => {
-                  const onAbout = item.to === '/about' && location.pathname === '/who-we-are'
-                  const onWork = item.to === '/our-work' && location.pathname.startsWith('/work')
-                  return `rounded-full px-3.5 py-2 text-sm font-heading font-semibold transition-colors ${
-                    isActive || onAbout || onWork ? 'text-brand-dark' : 'text-ink/70 hover:text-brand-dark'
+                className={({ isActive }) =>
+                  `rounded-full px-3.5 py-2 text-sm font-heading font-semibold transition-colors ${
+                    isNavActive(item.to, location.pathname, isActive)
+                      ? 'text-brand-dark'
+                      : 'text-ink/70 hover:text-brand-dark'
                   }`
                 }
               >
@@ -101,11 +111,9 @@ export default function Navbar() {
                 key={item.to}
                 to={item.to}
                 end={item.to === '/'}
-                className={({ isActive }) => {
-                  const onAbout = item.to === '/about' && location.pathname === '/who-we-are'
-                  const onWork = item.to === '/our-work' && location.pathname.startsWith('/work')
-                  return `rounded-xl px-3 py-3 text-base font-heading font-semibold ${
-                    isActive || onAbout || onWork ? 'bg-brand/10 text-brand-dark' : 'text-ink/80'
+                className={({ isActive }) =>
+                  `rounded-xl px-3 py-3 text-base font-heading font-semibold ${
+                    isNavActive(item.to, location.pathname, isActive) ? 'bg-brand/10 text-brand-dark' : 'text-ink/80'
                   }`
                 }
               >

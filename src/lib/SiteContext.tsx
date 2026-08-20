@@ -39,6 +39,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>
 }
 
+// oxlint-disable-next-line react/only-export-components
 export function useSite(): SiteData {
   const ctx = useContext(SiteContext)
   if (!ctx) throw new Error('useSite must be used within a SiteProvider')

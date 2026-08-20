@@ -178,6 +178,8 @@ export const IconTiktok = (p: IconProps) => (
   </svg>
 )
 
+/* Icon lookup tables live next to the SVG components they map to. */
+/* oxlint-disable react/only-export-components */
 export const pillarIconMap: Record<string, (p: IconProps) => React.ReactElement> = {
   rehabilitation: IconRehabilitation,
   education: IconEducation,
