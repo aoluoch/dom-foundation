@@ -34,13 +34,9 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 shadow-card backdrop-blur' : 'bg-white/80 backdrop-blur'
       }`}
     >
-      <div className="container-page flex h-20 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3">
-          {settings.logo && <img src={settings.logo.url} alt={settings.siteName} className="h-11 w-11 rounded-full object-cover" />}
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-heading text-base font-bold text-brand-dark">DOM TRUST</span>
-            <span className="font-heading text-[0.7rem] font-semibold tracking-[0.25em] text-gold">FOUNDATION</span>
-          </span>
+      <div className="container-page flex h-28 items-center justify-between gap-4">
+        <Link to="/" className="flex items-center">
+          {settings.logo && <img src={settings.logo.url} alt={settings.siteName} className="h-24 w-auto object-contain" />}
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

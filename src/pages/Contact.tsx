@@ -2,7 +2,6 @@ import { useState, type FormEvent } from 'react'
 import { useSite } from '../lib/SiteContext'
 import PageHero from '../components/ui/PageHero'
 import {
-  IconCheck,
   IconFacebook,
   IconInstagram,
   IconMail,
@@ -14,17 +13,16 @@ import {
 
 export default function Contact() {
   const { settings } = useSite()
-  const [sent, setSent] = useState(false)
+  const [opened, setOpened] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    if (!settings.email) return
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`)
     const subject = encodeURIComponent(form.subject || 'Website enquiry')
-    if (settings.email) {
-      window.location.href = `mailto:${settings.email}?subject=${subject}&body=${body}`
-    }
-    setSent(true)
+    window.location.href = `mailto:${settings.email}?subject=${subject}&body=${body}`
+    setOpened(true)
   }
 
   const update = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -120,16 +118,26 @@ export default function Contact() {
 
           {/* Form */}
           <div className="rounded-3xl border border-brand/10 bg-white p-8 shadow-card">
-            {sent ? (
+            {opened ? (
               <div className="flex h-full min-h-[24rem] flex-col items-center justify-center text-center">
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-gradient text-white shadow-soft">
-                  <IconCheck width={32} height={32} />
+                  <IconMail width={32} height={32} />
                 </span>
-                <h3 className="mt-6 text-2xl">Thank you!</h3>
+                <h3 className="mt-6 text-2xl">Almost there!</h3>
                 <p className="mt-3 max-w-sm text-ink/65">
-                  Your message is on its way. We'll get back to you as soon as we can.
+                  We've opened your email app with your message ready. Please press
+                  <span className="font-semibold text-ink"> Send </span>
+                  there to deliver it to us{settings.email ? ` at ${settings.email}` : ''}.
                 </p>
-                <button onClick={() => setSent(false)} className="btn-outline mt-6">Send another message</button>
+                <p className="mt-2 max-w-sm text-sm text-ink/50">
+                  If your email app didn't open, you can email us directly at
+                  {settings.email ? (
+                    <a href={`mailto:${settings.email}`} className="font-semibold text-brand-dark"> {settings.email}</a>
+                  ) : (
+                    ' the address above'
+                  )}.
+                </p>
+                <button onClick={() => setOpened(false)} className="btn-outline mt-6">Back to the form</button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
