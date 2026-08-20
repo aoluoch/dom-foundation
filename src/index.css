@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('/fonts/MyriadPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-ink;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-heading font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-brand-gradient text-white shadow-soft hover:shadow-lg hover:brightness-105 focus-visible:ring-brand;
+  }
+  .btn-gold {
+    @apply btn bg-gold-gradient text-white shadow-soft hover:brightness-105 focus-visible:ring-gold;
+  }
+  .btn-outline {
+    @apply btn border-2 border-brand-dark/80 text-brand-dark hover:bg-brand-dark hover:text-white;
+  }
+  .btn-ghost {
+    @apply btn text-brand-dark hover:bg-brand/10;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-heading font-semibold uppercase tracking-[0.18em] text-brand-dark;
+  }
+  .prose-content p {
+    @apply mb-4 leading-relaxed text-ink/80;
+  }
+  .card-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  .footer-title {
+    @apply mb-4 font-heading text-sm font-bold uppercase tracking-wider text-white;
+  }
+  .footer-link {
+    @apply text-white/70 transition-colors hover:text-gold-light;
+  }
+  .social-btn {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-gold hover:text-white;
+  }
+  .contact-social {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-brand/10 text-brand-dark transition-colors hover:bg-brand-gradient hover:text-white;
+  }
+  .form-label {
+    @apply mb-1.5 block font-heading text-sm font-semibold text-ink/80;
+  }
+  .form-input {
+    @apply w-full rounded-xl border border-brand/20 bg-cream px-4 py-3 text-ink outline-none transition-colors placeholder:text-ink/40 focus:border-brand focus:bg-white focus:ring-2 focus:ring-brand/20;
+  }
+}

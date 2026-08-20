@@ -1,0 +1,95 @@
+Package Report
+
+-----------------------------------------------------------------------------
+Document:
+Name: DOM_TrustBrochure_Trifold.ai
+Color Mode: RGB color
+Color Profile: sRGB IEC61966-2.1
+Ruler Units: centimeters
+Artboard Dimensions: 29.7 cm x 21 cm
+Show Images in Outline Mode: OFF
+Highlight Substituted Fonts: OFF
+Highlight Substituted Glyphs: OFF
+Preserve Text Editability
+Simulate Colored Paper: OFF
+
+-----------------------------------------------------------------------------
+Spot Color Objects:
+R=61 G=179 B=74 (CMYK)
+
+-----------------------------------------------------------------------------
+Missing Fonts:NONE
+
+-----------------------------------------------------------------------------
+Protected Fonts that were not packaged:NONE
+
+-----------------------------------------------------------------------------
+Fonts:
+Gilroy-Bold (TrueType)
+Gilroy-Medium (TrueType)
+Gilroy-SemiBold (TrueType)
+Myriad Pro (OTF)
+
+-----------------------------------------------------------------------------
+Embedded Fonts:
+NONE
+
+-----------------------------------------------------------------------------
+Missing Links:
+NONE
+
+-----------------------------------------------------------------------------
+Linked Images:
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/1
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 2400K, 960 by 640 pixels
+Dimensions: 289.134 by 192.756 points 
+Resolution: 239.059 by 239.059 pixels per inch
+
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/7
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 2400K, 960 by 640 pixels
+Dimensions: 290.322 by 193.548 points 
+Resolution: 238.081 by 238.081 pixels per inch
+
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/3
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 3037K, 1080 by 720 pixels
+Dimensions: 279.082 by 186.054 points 
+Resolution: 278.628 by 278.628 pixels per inch
+
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/2
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 2880K, 960 by 768 pixels
+Dimensions: 279.082 by 223.265 points 
+Resolution: 247.669 by 247.669 pixels per inch
+
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/6
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 3037K, 1080 by 720 pixels
+Dimensions: 402.035 by 268.023 points 
+Resolution: 193.416 by 193.416 pixels per inch
+
+
+/Volumes/J2911/DT24/DOM FOUNDATION/Photos/5
+Type: Transparent RGB
+Bits per Pixel: 32
+Channels: 4
+Size: 2550K, 907 by 720 pixels
+Dimensions: 244.814 by 194.34 points 
+Resolution: 266.75 by 266.75 pixels per inch
